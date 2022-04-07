@@ -1,18 +1,16 @@
 import React from "react";
-// import ReactSearchBox from 'react-search-box';
 
-const SearchBar = ({stories}) => {
+const SearchBar = ({stories, handleSearch}) => {
+
+    const onChange = (event) => {
+        handleSearch(event.target.value);
+    }
 
     return (
-        <>
-            <p>Search bar here</p>
-            
-            {/* <ReactSearchBox 
-            placeholder="Search news stories"
-            value=""
-            data={stories}
-            /> */}
-        </>
+        <div className="search">
+            <label id="search-label">Search</label>
+            <input type="text" onChange={onChange} />
+        </ div>
     );
 }
 

@@ -1,38 +1,82 @@
-.App {
+.news-box {
+  width: 60%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color:aliceblue ;
+  padding: 30px;
+  border-radius: 30px;
+  border: 2px solid cornflowerblue;
+  font-family:'Times New Roman', Times, serif;
+}
+
+h1 {
   text-align: center;
+  text-transform: uppercase;
+  font-size: 80px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search {
+  text-align: center; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#search-label {
+  font-size: larger;
+  font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+label {
+  margin: 0 10px;
+}
+
+input {
+  margin: 0 10px;
+}
+
+h2 {
+  padding: 20px;
+  padding-left: 60px;
+  font-weight: 800;
+  font-size: 35px;
+}
+
+.news-stories {
+  padding: 0 20px;
+}
+
+li {
+  margin-top: 20px;
+  border-bottom: 1px solid cornflowerblue;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  /* color: cornflowerblue; */
+  color: rgb(41, 92, 185);
+}
+
+li > a >h3 {
+  margin: 5px;
+}
+
+li > p {
+  margin: 5px;
+}
+
+.likes {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 5px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.likes > button {
+  margin: 5px;
 }

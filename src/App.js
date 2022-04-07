@@ -3,7 +3,9 @@ import NewsBox from './containers/NewsBox'
 
 function App() {
   return (
-    <NewsBox />
+    <div className="news-box">
+        <NewsBox />
+    </div>
   );
 }
 
