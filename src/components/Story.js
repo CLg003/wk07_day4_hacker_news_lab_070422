@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Story = () => {
+const Story = ({title, author, url}) => {
 
     return (
-        <p>Story</p>
+        <li>
+
+            <a href={url}><h3>{title}</h3></a>
+            <p>By {author}</p>
+
+        </li>
     );
 }
 

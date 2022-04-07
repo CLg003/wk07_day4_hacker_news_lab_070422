@@ -38,8 +38,8 @@ const NewsBox = () => {
     return (
         <>
             <h1>NewsBox</h1>
-            <SearchBar />
-            <StoryList />
+            <SearchBar stories={stories} />
+            <StoryList stories={stories}/>
         </>
     );
 
