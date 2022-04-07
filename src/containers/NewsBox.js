@@ -8,9 +8,24 @@ const NewsBox = () => {
 
     const [stories, setStories] = useState([]);
 
-    const [likes, setLikes] = useState(0);
+    const addLike = (event) => {
+        const copyStories = [...stories];
+        const story = copyStories[event.target.value];
+        if(!story.liked){
+        story.score++;
+        story['liked'] = true;
+        setStories(copyStories);}
+    }
 
-    const addLike = () => {setLikes(likes + 1)};
+    const unLike = (event) => {
+        const copyStories = [...stories];
+        const story = copyStories[event.target.value];
+        if(story.liked){
+            story.score--;
+            story.liked = false;
+        };
+        setStories(copyStories);
+    }
 
     const handleSearch = (query) => {
         const filteredStories = stories.filter(story => story.title.toLowerCase().includes(query.toLowerCase()));
@@ -42,7 +57,7 @@ const NewsBox = () => {
         <>
             <h1>Hacker News</h1>
             <SearchBar handleSearch={handleSearch} stories={stories} />
-            <StoryList stories={stories} likes={likes} addLike={addLike}/>
+            <StoryList stories={stories} addLike={addLike} unLike={unLike}/>
         </>
     );
 

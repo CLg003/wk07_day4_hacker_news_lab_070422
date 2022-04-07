@@ -1,10 +1,10 @@
 import React from "react";
 import Story from "./Story";
 
-const StoryList = ({stories, likes, addLike}) => {
+const StoryList = ({stories, addLike, unLike}) => {
 
     const storyNodes = stories.map((story, index) => {
-        return <Story key={index} title={story.title} author={story.by} url={story.url} likes={likes} addLike={addLike}/>
+        return <Story key={index} index={index} title={story.title} author={story.by} url={story.url} score={story.score} addLike={addLike} unLike={unLike}/>
     })
 
     return (
