@@ -21,36 +21,19 @@ const NewsBox = () => {
         .then(response => response.json())
         .then(data => setStoryIds(data));
     }
+    
+    const fetchStories = () => {
+        const storyRequests = storyIds.map(id => fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`));
+        Promise.all(storyRequests)
+        .then(storyRequests => Promise.all(storyRequests.map(request => request.json())))
+        .then(data => setStories(data));
+    };
+
     // SINGLE STORY DETAIL TEST FETCH:
     // const fetchStories = () => {
     //     fetch("https://hacker-news.firebaseio.com/v0/item/30939482.json")
     //     .then(response => response.json())
     //     .then(data => setStories([data]));
-    // }
-    
-    const fetchStories = () => {
-        const storyRequests = storyIds.map(id => fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`));
-
-        // fetch.all(storyUrls)
-        // .then(responses => responses.json())
-        // .then(data => setStories(data));
-
-        Promise.all(storyRequests)
-            .then(responses => responses.forEach(
-            response => response.json()))
-            // .then(responses => Promise.all(responses.map(response => response.json())))
-            .then(data => setStories(data));
-
-
-        // const jsonFunc = (arr) => {
-        //     const newArr = arr.map(item => item.json);
-        //     return newArr;
-        // }
-
-        // Promise.all(storyRequests)
-        //     .then(jsonFunc(responses))
-        //     .then(data => setStories(data));
-    }
 
     return (
         <>
@@ -63,3 +46,25 @@ const NewsBox = () => {
 }
 
 export default NewsBox;
+
+
+// Promise.all(storyRequests)
+        //     .then(responses.forEach(
+        //     response => console.log(response)))
+
+
+
+        // fetch.all(storyUrls)
+        // .then(responses => responses.json())
+        // .then(data => setStories(data));
+
+        
+
+        // const jsonFunc = (arr) => {
+        //     const newArr = arr.map(item => item.json);
+        //     return newArr;
+        // }
+
+        // Promise.all(storyRequests)
+        //     .then(jsonFunc(responses))
+        //     .then(data => setStories(data));
