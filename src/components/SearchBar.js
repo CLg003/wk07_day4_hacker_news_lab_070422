@@ -6,6 +6,7 @@ const SearchBar = ({stories}) => {
     return (
         <>
             <p>Search bar here</p>
+            
             {/* <ReactSearchBox 
             placeholder="Search news stories"
             value=""

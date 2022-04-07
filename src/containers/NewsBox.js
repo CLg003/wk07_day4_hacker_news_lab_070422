@@ -8,6 +8,18 @@ const NewsBox = () => {
 
     const [stories, setStories] = useState([]);
 
+    const [searchQuery, setSearchQuery] = useState("");
+    // const [filteredTitles, setFilteredTitles] = useState("");
+
+    // const titles = stories.map(story => story.title);
+
+    const handleSearch = (query) => {
+        setSearchQuery(query);
+        const filteredStories = stories.filter(story => story.title.includes(searchQuery));
+        setStories(filteredStories);
+        };
+    }
+
     useEffect(() => {
         fetchStoryIds()
     }, [])
