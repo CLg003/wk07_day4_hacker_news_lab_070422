@@ -21,7 +21,7 @@ const NewsBox = () => {
         .then(response => response.json())
         .then(data => setStoryIds(data));
     }
-
+    // SINGLE STORY DETAIL TEST FETCH:
     // const fetchStories = () => {
     //     fetch("https://hacker-news.firebaseio.com/v0/item/30939482.json")
     //     .then(response => response.json())
@@ -29,9 +29,7 @@ const NewsBox = () => {
     // }
     
     const fetchStories = () => {
-        const storyUrls = storyIds.map(id => `https://hacker-news.firebaseio.com/v0/item/${id}.json`);
-
-        const storyRequests = storyUrls.map(url => fetch(url));
+        const storyRequests = storyIds.map(id => fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`));
 
         // fetch.all(storyUrls)
         // .then(responses => responses.json())
@@ -40,7 +38,9 @@ const NewsBox = () => {
         Promise.all(storyRequests)
             .then(responses => responses.forEach(
             response => response.json()))
+            // .then(responses => Promise.all(responses.map(response => response.json())))
             .then(data => setStories(data));
+
 
         // const jsonFunc = (arr) => {
         //     const newArr = arr.map(item => item.json);
